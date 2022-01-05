@@ -37,6 +37,13 @@ class TaskListViewController: UITableViewController {
 //            StorageManager.shared.save(taskLists: [movieList, toDoList])
 //        }
 //    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let indexPath = tableView.indexPathForSelectedRow else { return }
+        let taskList = taskList[indexPath.row]
+        guard let taskVC = segue.destination as? TaskViewController else { return }
+        taskVC.taskList = taskList
+    }
 
 }
 

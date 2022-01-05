@@ -16,6 +16,7 @@
 		8CB901C1278581BA008A4968 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8CB901BF278581BA008A4968 /* Main.storyboard */; };
 		8CB901C3278581BB008A4968 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8CB901C2278581BB008A4968 /* Assets.xcassets */; };
 		8CB901C6278581BB008A4968 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8CB901C4278581BB008A4968 /* LaunchScreen.storyboard */; };
+		8CEEA33C2785FB30006ED5F4 /* TaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CEEA33B2785FB30006ED5F4 /* TaskViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +32,7 @@
 		8CB901C2278581BB008A4968 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8CB901C5278581BB008A4968 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8CB901C7278581BB008A4968 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8CEEA33B2785FB30006ED5F4 /* TaskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskViewController.swift; sourceTree = "<group>"; };
 		F904C4788023E14503A7D00B /* Pods-ToDoList.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ToDoList.release.xcconfig"; path = "Target Support Files/Pods-ToDoList/Pods-ToDoList.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -123,10 +125,19 @@
 				8C3040042785E3DF0056537E /* Support */,
 				8C3040012785D63F0056537E /* Services */,
 				8C303FFE27858B290056537E /* Models */,
-				8CB901BD278581BA008A4968 /* TaskListViewController.swift */,
+				8CEEA33A2785FAED006ED5F4 /* ViewConrollers */,
 				8C3040052785E4220056537E /* Storyboards */,
 			);
 			path = ToDoList;
+			sourceTree = "<group>";
+		};
+		8CEEA33A2785FAED006ED5F4 /* ViewConrollers */ = {
+			isa = PBXGroup;
+			children = (
+				8CB901BD278581BA008A4968 /* TaskListViewController.swift */,
+				8CEEA33B2785FB30006ED5F4 /* TaskViewController.swift */,
+			);
+			path = ViewConrollers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -249,6 +260,7 @@
 				8C3040032785D6700056537E /* StorageManager.swift in Sources */,
 				8CB901BA278581BA008A4968 /* AppDelegate.swift in Sources */,
 				8CB901BC278581BA008A4968 /* SceneDelegate.swift in Sources */,
+				8CEEA33C2785FB30006ED5F4 /* TaskViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
