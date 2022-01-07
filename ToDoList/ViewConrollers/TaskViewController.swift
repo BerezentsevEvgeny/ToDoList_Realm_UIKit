@@ -26,13 +26,34 @@ class TaskViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         section == 0 ? "CURRENT TASKS" : "COMPLETED TASKS"
     }
+    
+    override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let delete = UIContextualAction(style: .destructive, title: "DELETE") { action, view, escape in
+            let alert = UIAlertController(title: "This task will be deleted", message: nil, preferredStyle: .actionSheet)
+            let okAction = UIAlertAction(title: "Delete task", style: .destructive, handler: {_ in
+                escape(true)
+            })
+            let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { _ in
+                escape(true)
+            }
+            alert.addAction(okAction)
+            alert.addAction(cancelAction)
+            self.present(alert, animated: true, completion: nil)
+        }
+        return UISwipeActionsConfiguration(actions: [delete])
+    }
 
+    
+
+}
+
+extension TaskViewController {
     // MARK: - Table view data source
-
+    
     override func numberOfSections(in tableView: UITableView) -> Int {
         2
     }
-
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         section == 0 ? currentTasks.count : completedTasks.count
     }
@@ -46,6 +67,5 @@ class TaskViewController: UITableViewController {
         cell.contentConfiguration = content
         return cell
     }
-
-
 }
+
