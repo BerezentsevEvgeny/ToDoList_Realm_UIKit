@@ -27,6 +27,9 @@ class TaskViewController: UITableViewController {
         section == 0 ? "CURRENT TASKS" : "COMPLETED TASKS"
     }
     
+
+    
+    // MARK: - Swipes configurarion
     override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let delete = UIContextualAction(style: .destructive, title: "DELETE") { action, view, escape in
             let alert = UIAlertController(title: "This task will be deleted", message: nil, preferredStyle: .actionSheet)
@@ -42,9 +45,11 @@ class TaskViewController: UITableViewController {
         }
         return UISwipeActionsConfiguration(actions: [delete])
     }
-
     
-
+    
+    
+    
+    
 }
 
 extension TaskViewController {

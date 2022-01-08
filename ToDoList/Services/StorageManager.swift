@@ -27,8 +27,8 @@ class StorageManager {
         }
     }
     
-    // safe writing method
-    func write(completion: ()->Void) {
+    // Safe writing method
+    func write(completion: () -> Void) {
         do {
             try realm.write {
                 completion()
