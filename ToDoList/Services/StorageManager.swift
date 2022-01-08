@@ -16,8 +16,29 @@ class StorageManager {
     let realm = try! Realm()
     
     func save(taskLists: [TaskList]) {
-        try! realm.write {
+        write {
             realm.add(taskLists)
         }
     }
+    
+    func save(taskList: TaskList) {
+        write {
+            realm.add(taskList)
+        }
+    }
+    
+    // safe writing method
+    func write(completion: ()->Void) {
+        do {
+            try realm.write {
+                completion()
+            }
+        } catch let error {
+            print(error.localizedDescription)
+        }
+    }
+    
+    
+    
+    
 }
