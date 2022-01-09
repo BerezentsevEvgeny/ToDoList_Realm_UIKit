@@ -47,16 +47,22 @@
                             <outlet property="delegate" destination="Cxm-iK-UMZ" id="39d-Vz-w6W"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Task Lists" id="cJC-yu-Myj"/>
+                    <navigationItem key="navigationItem" title="Task Lists" id="cJC-yu-Myj">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="Gy2-FT-svG">
+                            <connections>
+                                <action selector="addButtonPressed:" destination="Cxm-iK-UMZ" id="k6O-0t-tUV"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Yv1-4A-OkL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2161" y="-86"/>
         </scene>
-        <!--Task View Controller-->
+        <!--Tasks View Controller-->
         <scene sceneID="vUM-wf-Q0E">
             <objects>
-                <tableViewController id="G34-WY-hqG" customClass="TaskViewController" customModule="ToDoList" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="G34-WY-hqG" customClass="TasksViewController" customModule="ToDoList" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" estimatedSectionHeaderHeight="-1" sectionFooterHeight="28" estimatedSectionFooterHeight="-1" id="XFq-58-KYd">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
