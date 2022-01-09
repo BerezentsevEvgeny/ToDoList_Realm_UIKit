@@ -16,6 +16,7 @@ class TaskListViewController: UITableViewController {
         super.viewDidLoad()
         taskLists = storage.realm.objects(TaskList.self)
         navigationItem.leftBarButtonItem = editButtonItem
+        tableView.rowHeight = 60
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -62,7 +63,6 @@ class TaskListViewController: UITableViewController {
         doneAction.backgroundColor = #colorLiteral(red: 0.2745098174, green: 0.4862745106, blue: 0.1411764771, alpha: 1)
         
         return UISwipeActionsConfiguration(actions: [doneAction, editAction, deleteAction])
-
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -79,9 +79,7 @@ class TaskListViewController: UITableViewController {
     // Sorting
     
     // Sample data
-    
-    
-    
+
 }
 
 
@@ -90,7 +88,6 @@ extension TaskListViewController {
     private func showAlert(with taskList: TaskList? = nil, completion: (() -> Void)? = nil) {
      
         let title = taskList != nil ? "Edit List" : "New List"
-        
         let alert = UIAlertController.createAlert(withTitle: title, andMessage: "Please enter list name")
         
         alert.action(with: taskList) { newValue in
@@ -101,18 +98,14 @@ extension TaskListViewController {
                 self.save(taskList: newValue)
             }
         }
-        
         present(alert, animated: true)
     }
     
     private func save(taskList: String) {
         let taskList = TaskList(value: [taskList])
-        
         StorageManager.shared.save(taskList: taskList)
         let rowIndex = IndexPath(row: taskLists.count - 1, section: 0)
         tableView.insertRows(at: [rowIndex], with: .automatic)
     }
-    
-    
 }
 

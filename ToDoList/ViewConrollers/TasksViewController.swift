@@ -16,12 +16,11 @@ class TasksViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = taskList.name
         
         currentTasks = taskList.tasks.filter("isComplete = false")
         completedTasks = taskList.tasks.filter("isComplete = true")
-        
-        setupBarButtons()
+        setupNavigationBar()
+        tableView.rowHeight = 60
     }
     
     // MARK: - Table view data source
@@ -54,23 +53,13 @@ class TasksViewController: UITableViewController {
             ? currentTasks[indexPath.row]
             : completedTasks[indexPath.row]
                 
-        let editAction = UIContextualAction(style: .normal, title: "Edit") { _, _, isDone in
-            self.showAlert(with: task) {
-                tableView.reloadRows(at: [indexPath], with: .automatic)
-            }
-            isDone(true)
-        }
         let doneTitle = indexPath.section == 0 ? "Done" : "Undone"
-        
         let doneAction = UIContextualAction(style: .normal, title: doneTitle) { _, _, isDone in
             StorageManager.shared.done(task: task)
             
             let indexPathForCurrentTask = IndexPath(row: self.currentTasks.count - 1, section: 0)
             let indexPathForCompletedTask = IndexPath(row: self.completedTasks.count - 1, section: 1)
-            
-            let destinationIndexRow = indexPath.section == 0
-                ? indexPathForCompletedTask
-                : indexPathForCurrentTask
+            let destinationIndexRow = indexPath.section == 0 ? indexPathForCompletedTask : indexPathForCurrentTask
             
             tableView.moveRow(at: indexPath, to: destinationIndexRow)
             isDone(true)
@@ -81,14 +70,20 @@ class TasksViewController: UITableViewController {
             tableView.deleteRows(at: [indexPath], with: .automatic)
         }
         
-        editAction.backgroundColor = .orange
         doneAction.backgroundColor = #colorLiteral(red: 0.2745098174, green: 0.4862745106, blue: 0.1411764771, alpha: 1)
-        
-        return UISwipeActionsConfiguration(actions: [doneAction, editAction, deleteAction])
- 
+        return UISwipeActionsConfiguration(actions: [doneAction, deleteAction])
     }
     
-    private func setupBarButtons() {
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        let task = indexPath.section == 0 ? currentTasks[indexPath.row] : completedTasks[indexPath.row]
+        showAlert(with: task) {
+            tableView.reloadRows(at: [indexPath], with: .automatic)
+        }
+    }
+    
+    private func setupNavigationBar() {
+        title = taskList.name
         let addButton = UIBarButtonItem(
             barButtonSystemItem: .add,
             target: self,
@@ -108,7 +103,6 @@ extension TasksViewController {
     private func showAlert(with task: Task? = nil, completion: (() -> Void)? = nil) {
         
         let title = task != nil ? "Edit Task" : "New Task"
-        
         let alert = UIAlertController.createAlert(withTitle: title, andMessage: "What do you want to do?")
         
         alert.action(with: task) { newValue, note in
@@ -119,15 +113,13 @@ extension TasksViewController {
             } else {
                 self.saveTask(withName: newValue, andNote: note)
             }
-            
         }
         
         present(alert, animated: true)
     }
     
     private func saveTask(withName name: String, andNote note: String) {
-        let task = Task(value: [name, note])
-        
+        let task = Task(value: [name, note])        
         StorageManager.shared.save(task: task, in: taskList)
         let rowIndex = IndexPath(row: currentTasks.count - 1, section: 0)
         tableView.insertRows(at: [rowIndex], with: .automatic)
