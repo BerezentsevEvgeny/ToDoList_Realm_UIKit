@@ -13,25 +13,25 @@ class DataManager {
     
     private init() {}
     
-//    func createSampleData() {
-//        let movieList = TaskList()
-//        movieList.name = "Best movies"
-//
-//        let toDoList = TaskList()
-//        toDoList.name = "ToDoList"
-//
-//        let movieOne = Task()
-//        movieOne.name = "Matrix"
-//        movieOne.note = "First place"
-//
-//        let movieTwo = Task(value: ["name": "Titanic","note": "Last place"])
-//
-//        movieList.tasks.insert(contentsOf: [movieOne,movieTwo], at: 0)
-//
-//        DispatchQueue.main.async {
-//            StorageManager.shared.save(taskLists: [movieList, toDoList])
-//        }
-//    }
+    func createSampleData(completion: @escaping () -> Void) {
+        if !UserDefaults.standard.bool(forKey: "done") {
+            
+            UserDefaults.standard.set(true, forKey: "done")
+            
+            let sampleTaskList = TaskList()
+            sampleTaskList.name = "Sample task list"
+            
+            let taskOne = Task(value: ["Sample task one", "Do something", Date(), false])
+            let taskTwo = Task(value: ["Sample task two", "Do something", Date(), false])
+            sampleTaskList.tasks.insert(contentsOf: [taskOne, taskTwo], at: 0)
+
+            DispatchQueue.main.async {
+                StorageManager.shared.save(taskList: sampleTaskList)
+                completion()
+            }
+        }
+
+    }
     
     
 }

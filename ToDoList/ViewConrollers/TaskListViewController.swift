@@ -14,6 +14,7 @@ class TaskListViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        createSampleData()
         taskLists = storage.realm.objects(TaskList.self)
         navigationItem.leftBarButtonItem = editButtonItem
         tableView.rowHeight = 60
@@ -78,7 +79,11 @@ class TaskListViewController: UITableViewController {
     
     // Sorting
     
-    // Sample data
+    private func createSampleData() {
+        DataManager.shared.createSampleData {
+            self.tableView.reloadData()
+        }
+    }
 
 }
 
