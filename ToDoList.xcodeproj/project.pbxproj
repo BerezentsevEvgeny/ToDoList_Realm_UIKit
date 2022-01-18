@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		3CCA610ABD48E3246EA5C786 /* Pods_ToDoList.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 394FB40D948002B05D2DA448 /* Pods_ToDoList.framework */; };
-		8C30400027858B440056537E /* TaskList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C303FFF27858B440056537E /* TaskList.swift */; };
+		8C30400027858B440056537E /* Car.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C303FFF27858B440056537E /* Car.swift */; };
 		8C3040032785D6700056537E /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3040022785D6700056537E /* StorageManager.swift */; };
 		8C75E316278ABF4C00575FEF /* Extension + UIAlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C75E315278ABF4C00575FEF /* Extension + UIAlertController.swift */; };
 		8C75E318278AD46C00575FEF /* Extension + UITableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C75E317278AD46C00575FEF /* Extension + UITableViewCell.swift */; };
@@ -25,7 +25,7 @@
 /* Begin PBXFileReference section */
 		394FB40D948002B05D2DA448 /* Pods_ToDoList.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ToDoList.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		63E91C1887C8F83B07732948 /* Pods-ToDoList.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ToDoList.debug.xcconfig"; path = "Target Support Files/Pods-ToDoList/Pods-ToDoList.debug.xcconfig"; sourceTree = "<group>"; };
-		8C303FFF27858B440056537E /* TaskList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskList.swift; sourceTree = "<group>"; };
+		8C303FFF27858B440056537E /* Car.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Car.swift; sourceTree = "<group>"; };
 		8C3040022785D6700056537E /* StorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageManager.swift; sourceTree = "<group>"; };
 		8C75E315278ABF4C00575FEF /* Extension + UIAlertController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension + UIAlertController.swift"; sourceTree = "<group>"; };
 		8C75E317278AD46C00575FEF /* Extension + UITableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension + UITableViewCell.swift"; sourceTree = "<group>"; };
@@ -74,7 +74,7 @@
 		8C303FFE27858B290056537E /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				8C303FFF27858B440056537E /* TaskList.swift */,
+				8C303FFF27858B440056537E /* Car.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -273,7 +273,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8C75E316278ABF4C00575FEF /* Extension + UIAlertController.swift in Sources */,
-				8C30400027858B440056537E /* TaskList.swift in Sources */,
+				8C30400027858B440056537E /* Car.swift in Sources */,
 				8CB901BE278581BA008A4968 /* CarListViewController.swift in Sources */,
 				8C3040032785D6700056537E /* StorageManager.swift in Sources */,
 				8C9C309E27899B4E00D71AEB /* DataManager.swift in Sources */,

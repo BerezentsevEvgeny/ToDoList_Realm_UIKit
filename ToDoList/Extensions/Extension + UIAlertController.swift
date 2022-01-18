@@ -13,10 +13,10 @@ extension UIAlertController {
         UIAlertController(title: title, message: message, preferredStyle: .alert)
     }
         
-    // Action for task list
-    func action(with taskList: TaskList?, completion: @escaping (String) -> Void) {
+    // Action for Car list
+    func action(with car: Car?, completion: @escaping (String) -> Void) {
         
-        let doneButton = taskList == nil ? "Save" : "Update"
+        let doneButton = car == nil ? "Save" : "Update"
                 
         let saveAction = UIAlertAction(title: doneButton, style: .default) { _ in
             guard let newValue = self.textFields?.first?.text else { return }
@@ -29,23 +29,23 @@ extension UIAlertController {
         addAction(saveAction)
         addAction(cancelAction)
         addTextField { textField in
-            textField.placeholder = "List Name"
-            textField.text = taskList?.name
+            textField.placeholder = "Car name"
+            textField.text = car?.name
         }
     }
     
-    // Action for task
-    func action(with task: Task?, completion: @escaping (String, String) -> Void) {
+    // Action for note
+    func action(with note: Note?, completion: @escaping (String, String) -> Void) {
         
-        let title = task == nil ? "Save" : "Update"
+        let title = note == nil ? "Save" : "Update"
                         
         let saveAction = UIAlertAction(title: title, style: .default) { _ in
-            guard let newTask = self.textFields?.first?.text, !newTask.isEmpty else { return }
+            guard let newNote = self.textFields?.first?.text, !newNote.isEmpty else { return }
             
             if let note = self.textFields?.last?.text, !note.isEmpty {
-                completion(newTask, note)
+                completion(newNote, note)
             } else {
-                completion(newTask, "")
+                completion(newNote, "")
             }
         }
         
@@ -55,13 +55,13 @@ extension UIAlertController {
         addAction(cancelAction)
     
         addTextField { textField in
-            textField.placeholder = "New task"
-            textField.text = task?.name
+            textField.placeholder = "Name"
+            textField.text = note?.name
         }
         
         addTextField { textField in
-            textField.placeholder = "Note"
-            textField.text = task?.note
+            textField.placeholder = "Note text"
+            textField.text = note?.text
         }
     }
 }

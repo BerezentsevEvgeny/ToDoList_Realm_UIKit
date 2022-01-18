@@ -18,15 +18,15 @@ class DataManager {
             
             UserDefaults.standard.set(true, forKey: "done")
             
-            let sampleTaskList = TaskList()
-            sampleTaskList.name = "Sample task list"
+            let sampleCar = Car()
+            sampleCar.name = "Sample car"
             
-            let taskOne = Task(value: ["Sample task one", "Do something", Date(), false])
-            let taskTwo = Task(value: ["Sample task two", "Do something", Date(), true])
-            sampleTaskList.tasks.insert(contentsOf: [taskOne, taskTwo], at: 0)
+            let noteOne = Note(value: ["Sample note one", "Do something", Date(), false])
+            let noteTwo = Note(value: ["Sample note two", "Do something", Date(), true])
+            sampleCar.notes.insert(contentsOf: [noteOne, noteTwo], at: 0)
 
             DispatchQueue.main.async {
-                StorageManager.shared.save(taskList: sampleTaskList)
+                StorageManager.shared.save(car: sampleCar)
                 completion()
             }
         }

@@ -9,16 +9,16 @@ import RealmSwift
 
 class CarNotesViewController: UITableViewController {
     
-    var taskList: TaskList!
+    var car: Car!
     
-    private var currentTasks: Results<Task>!
-    private var completedTasks: Results<Task>!
+    private var currentNotes: Results<Note>!
+    private var completedNotes: Results<Note>!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        currentTasks = taskList.tasks.filter("isComplete = false")
-        completedTasks = taskList.tasks.filter("isComplete = true")
+        currentNotes = car.notes.filter("isComplete = false")
+        completedNotes = car.notes.filter("isComplete = true")
         setupNavigationBar()
         tableView.rowHeight = 60
     }
@@ -29,19 +29,19 @@ class CarNotesViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        section == 0 ? currentTasks.count : completedTasks.count
+        section == 0 ? currentNotes.count : completedNotes.count
     }
     
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        section == 0 ? "CURRENT TASKS" : "COMPLETED TASKS"
+        section == 0 ? "CURRENT" : "COMPLETED"
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "TaskCell", for: indexPath)
-        let task = indexPath.section == 0 ? currentTasks[indexPath.row] : completedTasks[indexPath.row]
+        let cell = tableView.dequeueReusableCell(withIdentifier: "NoteCell", for: indexPath)
+        let note = indexPath.section == 0 ? currentNotes[indexPath.row] : completedNotes[indexPath.row]
         var content = cell.defaultContentConfiguration()
-        content.text = task.name
-        content.secondaryText = task.note
+        content.text = note.name
+        content.secondaryText = note.text
         cell.contentConfiguration = content
         return cell
     }
@@ -50,15 +50,15 @@ class CarNotesViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         
         let task = indexPath.section == 0
-            ? currentTasks[indexPath.row]
-            : completedTasks[indexPath.row]
+            ? currentNotes[indexPath.row]
+            : completedNotes[indexPath.row]
                 
         let doneTitle = indexPath.section == 0 ? "Done" : "Undone"
         let doneAction = UIContextualAction(style: .normal, title: doneTitle) { _, _, isDone in
-            StorageManager.shared.done(task: task)
+            StorageManager.shared.done(note: task)
             
-            let indexPathForCurrentTask = IndexPath(row: self.currentTasks.count - 1, section: 0)
-            let indexPathForCompletedTask = IndexPath(row: self.completedTasks.count - 1, section: 1)
+            let indexPathForCurrentTask = IndexPath(row: self.currentNotes.count - 1, section: 0)
+            let indexPathForCompletedTask = IndexPath(row: self.completedNotes.count - 1, section: 1)
             let destinationIndexRow = indexPath.section == 0 ? indexPathForCompletedTask : indexPathForCurrentTask
             
             tableView.moveRow(at: indexPath, to: destinationIndexRow)
@@ -66,7 +66,7 @@ class CarNotesViewController: UITableViewController {
         }
         
         let deleteAction = UIContextualAction(style: .destructive, title: "Delete") { _, _, _ in
-            StorageManager.shared.delete(task: task)
+            StorageManager.shared.delete(note: task)
             tableView.deleteRows(at: [indexPath], with: .automatic)
         }
         
@@ -76,14 +76,14 @@ class CarNotesViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        let task = indexPath.section == 0 ? currentTasks[indexPath.row] : completedTasks[indexPath.row]
+        let task = indexPath.section == 0 ? currentNotes[indexPath.row] : completedNotes[indexPath.row]
         showAlert(with: task) {
             tableView.reloadRows(at: [indexPath], with: .automatic)
         }
     }
     
     private func setupNavigationBar() {
-        title = taskList.name
+        title = car.name
         let addButton = UIBarButtonItem(
             barButtonSystemItem: .add,
             target: self,
@@ -100,15 +100,15 @@ class CarNotesViewController: UITableViewController {
 
 extension CarNotesViewController {
     
-    private func showAlert(with task: Task? = nil, completion: (() -> Void)? = nil) {
+    private func showAlert(with task: Note? = nil, completion: (() -> Void)? = nil) {
         
-        let title = task != nil ? "Edit Task" : "New Task"
-        let alert = UIAlertController.createAlert(withTitle: title, andMessage: "What do you want to do?")
+        let title = task != nil ? "Edit note" : "Add new note"
+        let alert = UIAlertController.createAlert(withTitle: title, andMessage: "For \(car.name)")
         
         alert.action(with: task) { newValue, note in
             
             if let task = task, let completion = completion {
-                StorageManager.shared.edit(task: task, name: newValue, note: note)
+                StorageManager.shared.edit(note: task, name: newValue, text: note)
                 completion()
             } else {
                 self.saveTask(withName: newValue, andNote: note)
@@ -119,9 +119,9 @@ extension CarNotesViewController {
     }
     
     private func saveTask(withName name: String, andNote note: String) {
-        let task = Task(value: [name, note])        
-        StorageManager.shared.save(task: task, in: taskList)
-        let rowIndex = IndexPath(row: currentTasks.count - 1, section: 0)
+        let task = Note(value: [name, note])        
+        StorageManager.shared.save(note: task, in: car)
+        let rowIndex = IndexPath(row: currentNotes.count - 1, section: 0)
         tableView.insertRows(at: [rowIndex], with: .automatic)
     }
 }

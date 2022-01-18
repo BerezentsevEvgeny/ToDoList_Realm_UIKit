@@ -26,61 +26,61 @@ class StorageManager {
         }
     }
     
-    // MARK: - Work with Lists
-    func save(taskLists: [TaskList]) {
+    // MARK: - Work with Cars
+    func save(cars: [Car]) {
         write {
-            realm.add(taskLists)
+            realm.add(cars)
         }
     }
     
-    func save(taskList: TaskList) {
+    func save(car: Car) {
         write {
-            realm.add(taskList)
+            realm.add(car)
         }
     }
     
-    func delete(taskList: TaskList) {
+    func delete(car: Car) {
         write {
-            realm.delete(taskList.tasks)
-            realm.delete(taskList)
+            realm.delete(car.notes)
+            realm.delete(car)
         }
     }
     
-    func edit(taskList: TaskList, newValue: String) {
+    func edit(car: Car, newValue: String) {
         write {
-            taskList.name = newValue
+            car.name = newValue
         }
     }
     
-    func done(taskList: TaskList) {
+    func done(car: Car) {
         write {
-            taskList.tasks.setValue(true, forKey: "isComplete")
+            car.notes.setValue(true, forKey: "isComplete")
         }
     }
     
-    // MARK: - Work with tasks
-    func delete(task: Task) {
+    // MARK: - Work with notes
+    func delete(note: Note) {
         write {
-            realm.delete(task)
+            realm.delete(note)
         }
     }
     
-    func edit(task: Task, name: String, note: String) {
+    func edit(note: Note, name: String, text: String) {
         write {
-            task.name = name
-            task.note = note
+            note.name = name
+            note.text = text
         }
     }
         
-    func save(task: Task, in taskList: TaskList) {
+    func save(note: Note, in car: Car) {
         write {
-            taskList.tasks.append(task)
+            car.notes.append(note)
         }
     }
     
-    func done(task: Task) {
+    func done(note: Note) {
         write {
-            task.isComplete.toggle()
+            note.isComplete.toggle()
         }
     }
   

@@ -9,16 +9,16 @@ import UIKit
 
 extension UITableViewCell {
     
-    func configure(with taskList: TaskList) {
-        let currentTasks = taskList.tasks.filter("isComplete = false")
-        let completedTasks = taskList.tasks.filter("isComplete = true")
+    func configure(with car: Car) {
+        let currentTasks = car.notes.filter("isComplete = false")
+        let completedTasks = car.notes.filter("isComplete = true")
         
         var content = defaultContentConfiguration()
         
-        content.text = taskList.name
+        content.text = car.name
         
         if !currentTasks.isEmpty {
-            content.secondaryText = "\(currentTasks.count)"
+            content.secondaryText = "Notes \(currentTasks.count)"
             accessoryType = .none
         } else if !completedTasks.isEmpty {
             content.secondaryText = nil

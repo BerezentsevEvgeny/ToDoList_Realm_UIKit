@@ -10,12 +10,12 @@ import RealmSwift
 class CarListViewController: UITableViewController {
     
     private let storage = StorageManager.shared
-    private var taskLists: Results<TaskList>!
+    private var carList: Results<Car>!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         createSampleData()
-        taskLists = storage.realm.objects(TaskList.self)
+        carList = storage.realm.objects(Car.self)
         navigationItem.leftBarButtonItem = editButtonItem
         tableView.rowHeight = 60
     }
@@ -27,20 +27,20 @@ class CarListViewController: UITableViewController {
     
     // MARK: - Table view Data source
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        taskLists.count
+        carList.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "TaskListCell", for: indexPath)
-        let taskList = taskLists[indexPath.row]
-        cell.configure(with: taskList)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "CarListCell", for: indexPath)
+        let car = carList[indexPath.row]
+        cell.configure(with: car)
         return cell
     }
     
     // MARK: - Table view Delegate
     override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         
-        let currentList = taskLists[indexPath.row]
+        let currentList = carList[indexPath.row]
     
         let editAction = UIContextualAction(style: .normal, title: "Edit") { _, _, isDone in
             self.showAlert(with: currentList) {
@@ -50,13 +50,13 @@ class CarListViewController: UITableViewController {
         }
         
         let doneAction = UIContextualAction(style: .normal, title: "Done") { _, _, isDone in
-            StorageManager.shared.done(taskList: currentList)
+            StorageManager.shared.done(car: currentList)
             tableView.reloadRows(at: [indexPath], with: .automatic)
             isDone(true)
         }
         
         let deleteAction = UIContextualAction(style: .destructive, title: "Delete") { _, _, _ in
-            StorageManager.shared.delete(taskList: currentList)
+            StorageManager.shared.delete(car: currentList)
             tableView.deleteRows(at: [indexPath], with: .automatic)
         }
         
@@ -68,9 +68,9 @@ class CarListViewController: UITableViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let indexPath = tableView.indexPathForSelectedRow else { return }
-        let taskList = taskLists[indexPath.row]
+        let taskList = carList[indexPath.row]
         guard let taskVC = segue.destination as? CarNotesViewController else { return }
-        taskVC.taskList = taskList
+        taskVC.car = taskList
     }
 
     @IBAction func addButtonPressed(_ sender: Any) {
@@ -90,26 +90,26 @@ class CarListViewController: UITableViewController {
 
 extension CarListViewController {
     
-    private func showAlert(with taskList: TaskList? = nil, completion: (() -> Void)? = nil) {
+    private func showAlert(with car: Car? = nil, completion: (() -> Void)? = nil) {
      
-        let title = taskList != nil ? "Edit List" : "New List"
-        let alert = UIAlertController.createAlert(withTitle: title, andMessage: "Please enter list name")
+        let title = car != nil ? "Edit car name" : "Add new car"
+        let alert = UIAlertController.createAlert(withTitle: title, andMessage: "Please enter car name")
         
-        alert.action(with: taskList) { newValue in
-            if let taskList = taskList, let completion = completion {
-                StorageManager.shared.edit(taskList: taskList, newValue: newValue)
+        alert.action(with: car) { newValue in
+            if let car = car, let completion = completion {
+                StorageManager.shared.edit(car: car, newValue: newValue)
                 completion()
             } else {
-                self.save(taskList: newValue)
+                self.save(car: newValue)
             }
         }
         present(alert, animated: true)
     }
     
-    private func save(taskList: String) {
-        let taskList = TaskList(value: [taskList])
-        StorageManager.shared.save(taskList: taskList)
-        let rowIndex = IndexPath(row: taskLists.count - 1, section: 0)
+    private func save(car: String) {
+        let car = Car(value: [car])
+        StorageManager.shared.save(car: car)
+        let rowIndex = IndexPath(row: carList.count - 1, section: 0)
         tableView.insertRows(at: [rowIndex], with: .automatic)
     }
 }

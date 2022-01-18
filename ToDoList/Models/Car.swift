@@ -7,15 +7,15 @@
 
 import RealmSwift
 
-class Task: Object {
+class Note: Object {
     @objc dynamic var name = ""
-    @objc dynamic var note = ""
+    @objc dynamic var text = ""
     @objc dynamic var date = Date()
     @objc dynamic var isComplete = false
 }
 
-class TaskList: Object {
+class Car: Object {
     @objc dynamic var name = ""
     @objc dynamic var date = Date()
-    let tasks = List<Task>()
+    let notes = List<Note>()
 }
