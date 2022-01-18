@@ -15,11 +15,11 @@
 		8C9C309E27899B4E00D71AEB /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9C309D27899B4E00D71AEB /* DataManager.swift */; };
 		8CB901BA278581BA008A4968 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB901B9278581BA008A4968 /* AppDelegate.swift */; };
 		8CB901BC278581BA008A4968 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB901BB278581BA008A4968 /* SceneDelegate.swift */; };
-		8CB901BE278581BA008A4968 /* TaskListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB901BD278581BA008A4968 /* TaskListViewController.swift */; };
+		8CB901BE278581BA008A4968 /* CarListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB901BD278581BA008A4968 /* CarListViewController.swift */; };
 		8CB901C1278581BA008A4968 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8CB901BF278581BA008A4968 /* Main.storyboard */; };
 		8CB901C3278581BB008A4968 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8CB901C2278581BB008A4968 /* Assets.xcassets */; };
 		8CB901C6278581BB008A4968 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8CB901C4278581BB008A4968 /* LaunchScreen.storyboard */; };
-		8CEEA33C2785FB30006ED5F4 /* TasksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CEEA33B2785FB30006ED5F4 /* TasksViewController.swift */; };
+		8CEEA33C2785FB30006ED5F4 /* CarNotesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CEEA33B2785FB30006ED5F4 /* CarNotesViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,12 +33,12 @@
 		8CB901B6278581BA008A4968 /* ToDoList.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ToDoList.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8CB901B9278581BA008A4968 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8CB901BB278581BA008A4968 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		8CB901BD278581BA008A4968 /* TaskListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskListViewController.swift; sourceTree = "<group>"; };
+		8CB901BD278581BA008A4968 /* CarListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarListViewController.swift; sourceTree = "<group>"; };
 		8CB901C0278581BA008A4968 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		8CB901C2278581BB008A4968 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8CB901C5278581BB008A4968 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8CB901C7278581BB008A4968 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		8CEEA33B2785FB30006ED5F4 /* TasksViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasksViewController.swift; sourceTree = "<group>"; };
+		8CEEA33B2785FB30006ED5F4 /* CarNotesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarNotesViewController.swift; sourceTree = "<group>"; };
 		F904C4788023E14503A7D00B /* Pods-ToDoList.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ToDoList.release.xcconfig"; path = "Target Support Files/Pods-ToDoList/Pods-ToDoList.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -151,8 +151,8 @@
 		8CEEA33A2785FAED006ED5F4 /* ViewConrollers */ = {
 			isa = PBXGroup;
 			children = (
-				8CB901BD278581BA008A4968 /* TaskListViewController.swift */,
-				8CEEA33B2785FB30006ED5F4 /* TasksViewController.swift */,
+				8CB901BD278581BA008A4968 /* CarListViewController.swift */,
+				8CEEA33B2785FB30006ED5F4 /* CarNotesViewController.swift */,
 			);
 			path = ViewConrollers;
 			sourceTree = "<group>";
@@ -274,13 +274,13 @@
 			files = (
 				8C75E316278ABF4C00575FEF /* Extension + UIAlertController.swift in Sources */,
 				8C30400027858B440056537E /* TaskList.swift in Sources */,
-				8CB901BE278581BA008A4968 /* TaskListViewController.swift in Sources */,
+				8CB901BE278581BA008A4968 /* CarListViewController.swift in Sources */,
 				8C3040032785D6700056537E /* StorageManager.swift in Sources */,
 				8C9C309E27899B4E00D71AEB /* DataManager.swift in Sources */,
 				8CB901BA278581BA008A4968 /* AppDelegate.swift in Sources */,
 				8C75E318278AD46C00575FEF /* Extension + UITableViewCell.swift in Sources */,
 				8CB901BC278581BA008A4968 /* SceneDelegate.swift in Sources */,
-				8CEEA33C2785FB30006ED5F4 /* TasksViewController.swift in Sources */,
+				8CEEA33C2785FB30006ED5F4 /* CarNotesViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -433,6 +433,7 @@
 				DEVELOPMENT_TEAM = F824GPAVR5;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = ToDoList/Support/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Taskery;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -462,6 +463,7 @@
 				DEVELOPMENT_TEAM = F824GPAVR5;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = ToDoList/Support/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Taskery;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;

@@ -7,7 +7,7 @@
 
 import RealmSwift
 
-class TaskListViewController: UITableViewController {
+class CarListViewController: UITableViewController {
     
     private let storage = StorageManager.shared
     private var taskLists: Results<TaskList>!
@@ -69,7 +69,7 @@ class TaskListViewController: UITableViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let indexPath = tableView.indexPathForSelectedRow else { return }
         let taskList = taskLists[indexPath.row]
-        guard let taskVC = segue.destination as? TasksViewController else { return }
+        guard let taskVC = segue.destination as? CarNotesViewController else { return }
         taskVC.taskList = taskList
     }
 
@@ -84,11 +84,11 @@ class TaskListViewController: UITableViewController {
             self.tableView.reloadData()
         }
     }
-
+    
 }
 
 
-extension TaskListViewController {
+extension CarListViewController {
     
     private func showAlert(with taskList: TaskList? = nil, completion: (() -> Void)? = nil) {
      

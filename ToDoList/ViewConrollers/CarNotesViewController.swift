@@ -7,7 +7,7 @@
 
 import RealmSwift
 
-class TasksViewController: UITableViewController {
+class CarNotesViewController: UITableViewController {
     
     var taskList: TaskList!
     
@@ -98,7 +98,7 @@ class TasksViewController: UITableViewController {
 }
 
 
-extension TasksViewController {
+extension CarNotesViewController {
     
     private func showAlert(with task: Task? = nil, completion: (() -> Void)? = nil) {
         

@@ -41,7 +41,6 @@ extension UIAlertController {
                         
         let saveAction = UIAlertAction(title: title, style: .default) { _ in
             guard let newTask = self.textFields?.first?.text, !newTask.isEmpty else { return }
-//            guard !newTask.isEmpty else { return }
             
             if let note = self.textFields?.last?.text, !note.isEmpty {
                 completion(newTask, note)

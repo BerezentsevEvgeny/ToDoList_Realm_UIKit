@@ -22,7 +22,7 @@ class DataManager {
             sampleTaskList.name = "Sample task list"
             
             let taskOne = Task(value: ["Sample task one", "Do something", Date(), false])
-            let taskTwo = Task(value: ["Sample task two", "Do something", Date(), false])
+            let taskTwo = Task(value: ["Sample task two", "Do something", Date(), true])
             sampleTaskList.tasks.insert(contentsOf: [taskOne, taskTwo], at: 0)
 
             DispatchQueue.main.async {
@@ -30,8 +30,5 @@ class DataManager {
                 completion()
             }
         }
-
     }
-    
-    
 }
