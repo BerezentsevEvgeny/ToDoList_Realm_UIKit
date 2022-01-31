@@ -13,6 +13,7 @@
 		8C75E316278ABF4C00575FEF /* Extension + UIAlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C75E315278ABF4C00575FEF /* Extension + UIAlertController.swift */; };
 		8C75E318278AD46C00575FEF /* Extension + UITableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C75E317278AD46C00575FEF /* Extension + UITableViewCell.swift */; };
 		8C9C309E27899B4E00D71AEB /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9C309D27899B4E00D71AEB /* DataManager.swift */; };
+		8CB76CA5279739B600DFE674 /* CarTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB76CA4279739B600DFE674 /* CarTableViewCell.swift */; };
 		8CB901BA278581BA008A4968 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB901B9278581BA008A4968 /* AppDelegate.swift */; };
 		8CB901BC278581BA008A4968 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB901BB278581BA008A4968 /* SceneDelegate.swift */; };
 		8CB901BE278581BA008A4968 /* CarListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB901BD278581BA008A4968 /* CarListViewController.swift */; };
@@ -30,6 +31,7 @@
 		8C75E315278ABF4C00575FEF /* Extension + UIAlertController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension + UIAlertController.swift"; sourceTree = "<group>"; };
 		8C75E317278AD46C00575FEF /* Extension + UITableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension + UITableViewCell.swift"; sourceTree = "<group>"; };
 		8C9C309D27899B4E00D71AEB /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
+		8CB76CA4279739B600DFE674 /* CarTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarTableViewCell.swift; sourceTree = "<group>"; };
 		8CB901B6278581BA008A4968 /* ToDoList.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ToDoList.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8CB901B9278581BA008A4968 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8CB901BB278581BA008A4968 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -117,6 +119,14 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
+		8CB76CA627973E0A00DFE674 /* CustomCells */ = {
+			isa = PBXGroup;
+			children = (
+				8CB76CA4279739B600DFE674 /* CarTableViewCell.swift */,
+			);
+			path = CustomCells;
+			sourceTree = "<group>";
+		};
 		8CB901AD278581BA008A4968 = {
 			isa = PBXGroup;
 			children = (
@@ -141,6 +151,7 @@
 				8C3040042785E3DF0056537E /* Support */,
 				8C3040012785D63F0056537E /* Services */,
 				8C303FFE27858B290056537E /* Models */,
+				8CB76CA627973E0A00DFE674 /* CustomCells */,
 				8CEEA33A2785FAED006ED5F4 /* ViewConrollers */,
 				8C3040052785E4220056537E /* Storyboards */,
 				8C75E314278ABEFA00575FEF /* Extensions */,
@@ -276,6 +287,7 @@
 				8C30400027858B440056537E /* Car.swift in Sources */,
 				8CB901BE278581BA008A4968 /* CarListViewController.swift in Sources */,
 				8C3040032785D6700056537E /* StorageManager.swift in Sources */,
+				8CB76CA5279739B600DFE674 /* CarTableViewCell.swift in Sources */,
 				8C9C309E27899B4E00D71AEB /* DataManager.swift in Sources */,
 				8CB901BA278581BA008A4968 /* AppDelegate.swift in Sources */,
 				8C75E318278AD46C00575FEF /* Extension + UITableViewCell.swift in Sources */,

@@ -17,7 +17,7 @@ class CarListViewController: UITableViewController {
         createSampleData()
         carList = storage.realm.objects(Car.self)
         navigationItem.leftBarButtonItem = editButtonItem
-        tableView.rowHeight = 60
+        tableView.rowHeight = 80
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -31,7 +31,7 @@ class CarListViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "CarListCell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "CarListCell", for: indexPath) as! CarTableViewCell //
         let car = carList[indexPath.row]
         cell.configure(with: car)
         return cell
@@ -95,13 +95,22 @@ extension CarListViewController {
         let title = car != nil ? "Edit car name" : "Add new car"
         let alert = UIAlertController.createAlert(withTitle: title, andMessage: "Please enter car name")
         
-        alert.action(with: car) { newValue in
+//        alert.action(with: car) { newValue in
+//            if let car = car, let completion = completion {
+//                StorageManager.shared.edit(car: car, newValue: newValue)
+//                completion()
+//            } else {
+//                self.save(car: newValue)
+//            }
+//        }
+        alert.action2(with: car) { newName, newYear in
             if let car = car, let completion = completion {
-                StorageManager.shared.edit(car: car, newValue: newValue)
+                StorageManager.shared.edit(car: car, newName: newName, newYear: newYear)
                 completion()
             } else {
-                self.save(car: newValue)
+                self.save(car: newName)
             }
+            
         }
         present(alert, animated: true)
     }

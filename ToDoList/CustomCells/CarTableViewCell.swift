@@ -1,22 +1,30 @@
 //
-//  Extension + UITableViewCell.swift
+//  CarTableViewCell.swift
 //  ToDoList
 //
-//  Created by Евгений Березенцев on 09.01.2022.
+//  Created by Евгений Березенцев on 18.01.2022.
 //
 
 import UIKit
 
-extension UITableViewCell {
+class CarTableViewCell: UITableViewCell {
+
+    @IBOutlet weak var nameLabel: UILabel!
+
     
-//    func configure(with car: Car) {
+//    override func setSelected(_ selected: Bool, animated: Bool) {
+//        super.setSelected(selected, animated: animated)
+//
+//        // Configure the view for the selected state
+//    }
+    func configure(with car: Car) {
 //        let currentTasks = car.notes.filter("isComplete = false")
 //        let completedTasks = car.notes.filter("isComplete = true")
-//        
+//
 //        var content = defaultContentConfiguration()
-//        
+//
 //        content.text = car.name
-//        
+//
 //        if !currentTasks.isEmpty {
 //            content.secondaryText = "Notes \(currentTasks.count)"
 //            accessoryType = .none
@@ -27,7 +35,9 @@ extension UITableViewCell {
 //            accessoryType = .none
 //            content.secondaryText = "0"
 //        }
-//        
+//
 //        contentConfiguration = content
-//    }
+        nameLabel.text = car.name + " Hello"
+    }
+
 }

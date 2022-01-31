@@ -46,9 +46,15 @@ class StorageManager {
         }
     }
     
-    func edit(car: Car, newValue: String) {
+//    func edit(car: Car, newValue: String) {
+//        write {
+//            car.name = newValue
+//        }
+//    }
+    func edit(car: Car, newName: String, newYear: String) {
         write {
-            car.name = newValue
+            car.name = newName
+            car.year = newYear
         }
     }
     

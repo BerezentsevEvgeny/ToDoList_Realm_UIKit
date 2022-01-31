@@ -64,4 +64,34 @@ extension UIAlertController {
             textField.text = note?.text
         }
     }
+    
+    func action2(with car: Car?, completion: @escaping (String, String) -> Void) {
+        
+        let title = car == nil ? "Save" : "Update"
+                        
+        let saveAction = UIAlertAction(title: title, style: .default) { _ in
+            guard let newCar = self.textFields?.first?.text, !newCar.isEmpty else { return }
+            
+            if let year = self.textFields?.last?.text, !year.isEmpty {
+                completion(newCar, year)
+            } else {
+                completion(newCar, "")
+            }
+        }
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: .destructive)
+        
+        addAction(saveAction)
+        addAction(cancelAction)
+    
+        addTextField { textField in
+            textField.placeholder = "Car name"
+            textField.text = car?.name
+        }
+        
+        addTextField { textField in
+            textField.placeholder = "Car year"
+            textField.text = car?.year
+        }
+    }
 }

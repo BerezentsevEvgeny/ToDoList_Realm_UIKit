@@ -14,30 +14,29 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CarListCell" textLabel="nLj-Jp-g4U" detailTextLabel="cW1-Z8-SjH" style="IBUITableViewCellStyleValue1" id="j3k-1D-apB">
-                                <rect key="frame" x="0.0" y="44.5" width="414" height="43.5"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CarListCell" rowHeight="120" id="j3k-1D-apB" customClass="CarTableViewCell" customModule="ToDoList" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="44.5" width="414" height="120"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="j3k-1D-apB" id="250-Al-11e">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="120"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="nLj-Jp-g4U">
-                                            <rect key="frame" x="20" y="15" width="25" height="14.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="0.0"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Detail" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="cW1-Z8-SjH">
-                                            <rect key="frame" x="361" y="15" width="33" height="14.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="0.0"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qha-Us-Wc3">
+                                            <rect key="frame" x="20" y="11" width="374" height="98"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
+                                    <constraints>
+                                        <constraint firstItem="Qha-Us-Wc3" firstAttribute="bottom" secondItem="250-Al-11e" secondAttribute="bottomMargin" id="4ej-Is-PMw"/>
+                                        <constraint firstItem="Qha-Us-Wc3" firstAttribute="trailing" secondItem="250-Al-11e" secondAttribute="trailingMargin" id="TIO-yu-6KF"/>
+                                        <constraint firstItem="Qha-Us-Wc3" firstAttribute="leading" secondItem="250-Al-11e" secondAttribute="leadingMargin" id="XlB-AU-f93"/>
+                                        <constraint firstItem="Qha-Us-Wc3" firstAttribute="top" secondItem="250-Al-11e" secondAttribute="topMargin" id="a2A-16-QtN"/>
+                                    </constraints>
                                 </tableViewCellContentView>
                                 <connections>
+                                    <outlet property="nameLabel" destination="Qha-Us-Wc3" id="gOD-Uv-bIg"/>
                                     <segue destination="G34-WY-hqG" kind="show" id="LQu-y2-9Om"/>
                                 </connections>
                             </tableViewCell>
@@ -57,7 +56,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Yv1-4A-OkL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2161" y="-86"/>
+            <point key="canvasLocation" x="2160.8695652173915" y="-86.383928571428569"/>
         </scene>
         <!--Car Notes View Controller-->
         <scene sceneID="vUM-wf-Q0E">

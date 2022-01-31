@@ -16,6 +16,6 @@ class Note: Object {
 
 class Car: Object {
     @objc dynamic var name = ""
-    @objc dynamic var date = Date()
+    @objc dynamic var year = ""
     let notes = List<Note>()
 }
