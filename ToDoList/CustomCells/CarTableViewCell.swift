@@ -10,7 +10,8 @@ import UIKit
 class CarTableViewCell: UITableViewCell {
 
     @IBOutlet weak var nameLabel: UILabel!
-
+    @IBOutlet weak var yearLabel: UILabel!
+    
     
 //    override func setSelected(_ selected: Bool, animated: Bool) {
 //        super.setSelected(selected, animated: animated)
@@ -37,7 +38,7 @@ class CarTableViewCell: UITableViewCell {
 //        }
 //
 //        contentConfiguration = content
-        nameLabel.text = car.name + " Hello"
+        nameLabel.text = car.name
     }
 
 }

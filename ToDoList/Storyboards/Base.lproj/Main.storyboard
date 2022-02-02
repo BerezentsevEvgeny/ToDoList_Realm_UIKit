@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="I6e-ZI-E51">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="I6e-ZI-E51">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -21,22 +21,34 @@
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="120"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qha-Us-Wc3">
+                                        <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="gPa-NL-jR5">
                                             <rect key="frame" x="20" y="11" width="374" height="98"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="New car" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kdz-dp-XZQ">
+                                                    <rect key="frame" x="0.0" y="0.0" width="187" height="98"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Year" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c03-3W-3QJ">
+                                                    <rect key="frame" x="187" y="0.0" width="187" height="98"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </stackView>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="Qha-Us-Wc3" firstAttribute="bottom" secondItem="250-Al-11e" secondAttribute="bottomMargin" id="4ej-Is-PMw"/>
-                                        <constraint firstItem="Qha-Us-Wc3" firstAttribute="trailing" secondItem="250-Al-11e" secondAttribute="trailingMargin" id="TIO-yu-6KF"/>
-                                        <constraint firstItem="Qha-Us-Wc3" firstAttribute="leading" secondItem="250-Al-11e" secondAttribute="leadingMargin" id="XlB-AU-f93"/>
-                                        <constraint firstItem="Qha-Us-Wc3" firstAttribute="top" secondItem="250-Al-11e" secondAttribute="topMargin" id="a2A-16-QtN"/>
+                                        <constraint firstItem="gPa-NL-jR5" firstAttribute="top" secondItem="250-Al-11e" secondAttribute="topMargin" id="3QK-XP-Bxl"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="gPa-NL-jR5" secondAttribute="trailing" id="Pnh-dp-Ygv"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="gPa-NL-jR5" secondAttribute="bottom" id="Qj7-me-Cgr"/>
+                                        <constraint firstItem="gPa-NL-jR5" firstAttribute="leading" secondItem="250-Al-11e" secondAttribute="leadingMargin" id="n5i-kt-eaS"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <outlet property="nameLabel" destination="Qha-Us-Wc3" id="gOD-Uv-bIg"/>
+                                    <outlet property="nameLabel" destination="Kdz-dp-XZQ" id="Kme-kj-yam"/>
+                                    <outlet property="yearLabel" destination="c03-3W-3QJ" id="fX2-AW-SAW"/>
                                     <segue destination="G34-WY-hqG" kind="show" id="LQu-y2-9Om"/>
                                 </connections>
                             </tableViewCell>
