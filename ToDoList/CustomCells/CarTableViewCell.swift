@@ -39,6 +39,7 @@ class CarTableViewCell: UITableViewCell {
 //
 //        contentConfiguration = content
         nameLabel.text = car.name
+        yearLabel.text = car.year
     }
 
 }

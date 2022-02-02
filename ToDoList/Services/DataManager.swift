@@ -20,6 +20,7 @@ class DataManager {
             
             let sampleCar = Car()
             sampleCar.name = "Sample car"
+            sampleCar.year = "2000"
             
             let noteOne = Note(value: ["Sample note one", "Do something", Date(), false])
             let noteTwo = Note(value: ["Sample note two", "Do something", Date(), true])
