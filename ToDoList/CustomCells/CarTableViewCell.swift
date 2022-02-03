@@ -16,7 +16,6 @@ class CarTableViewCell: UITableViewCell {
 //    override func setSelected(_ selected: Bool, animated: Bool) {
 //        super.setSelected(selected, animated: animated)
 //
-//        // Configure the view for the selected state
 //    }
     func configure(with car: Car) {
 //        let currentTasks = car.notes.filter("isComplete = false")
