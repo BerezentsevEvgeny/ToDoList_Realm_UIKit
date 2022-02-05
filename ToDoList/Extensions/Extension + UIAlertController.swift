@@ -53,7 +53,6 @@ extension UIAlertController {
         
         addAction(saveAction)
         addAction(cancelAction)
-    
         addTextField { textField in
             textField.placeholder = "Name"
             textField.text = note?.name
